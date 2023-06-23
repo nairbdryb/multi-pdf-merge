@@ -9,7 +9,10 @@ def combine_pdfs(input_file, output_file):
         pdf_files = file.read().splitlines()
 
         for pdf_file in pdf_files:
-            merger.append(pdf_file)
+            if os.path.isfile(pdf_file):
+                merger.append(pdf_file)
+            else:
+                print(f"Error: PDF file '{pdf_file}' does not exist.")
 
     merger.write(output_file)
     merger.close()
