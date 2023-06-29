@@ -1,6 +1,6 @@
 import os
 import sys
-from PyPDF2 import PdfMerger
+from pypdf import PdfMerger
 
 def combine_pdfs(input_file, output_file):
     merger = PdfMerger()
@@ -25,7 +25,7 @@ if __name__ == '__main__':
         output_file = sys.argv[2]
 
         if not os.path.isfile(input_file):
-            print(f"Error: Input file '{input_file}' does not exist.")
+            print(f"Warning: Input file '{input_file}' does not exist.")
         else:
             combine_pdfs(input_file, output_file)
             print(f"PDF files combined successfully. Output saved as '{output_file}'.")
